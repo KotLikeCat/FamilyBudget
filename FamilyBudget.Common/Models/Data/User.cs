@@ -22,4 +22,6 @@ public class User : BaseDataModel
     
     [Column("authentication_hash")]
     public string? AuthenticationHash { get; set; }
+    
+    public List<BudgetUser> BudgetUsers { get; set; }
 }

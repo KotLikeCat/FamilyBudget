@@ -6,8 +6,13 @@ namespace FamilyBudget.Common.FilterPipeLines.User;
 
 public class UserSortFilter : IPipelineFilter<Models.Data.User>
 {
-    public IQueryable<Models.Data.User> Execute(IQueryable<Models.Data.User> query, FilterInputModel input)
+    public IQueryable<Models.Data.User> Execute(IQueryable<Models.Data.User> query, FilterInputModel input, params object[] dependencies)
     {
+        if (input.Sort == null)
+        {
+            return query;
+        }
+        
         var list = JsonConvert.DeserializeObject<List<string>>(input.Sort);
         if (list is not { Count: 2 })
         {

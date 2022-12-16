@@ -64,9 +64,10 @@ public class UsersController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        
+
+        var currentUser = HttpContext.Items["User"] as User;
         var pipeline = new UserFilterPipeline(_context.Users.AsNoTracking().AsQueryable());
-        var users = await pipeline.ExecuteAsync(input);
+        var users = await pipeline.ExecuteAsync(input, currentUser!);
         var usersView = _mapper.Map<BaseListViewModel<UserViewModel>>(users);
         return Ok(usersView);
     }
