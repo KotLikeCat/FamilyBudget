@@ -18,6 +18,9 @@ public class Budget : BaseDataModel
     [MaxLength(250)]
     public string? Description { get; set; }
     
+    [Column("user_id")]
+    public Guid UserId { get; set; }
+    
     [Column("create_time")]
     public DateTime CreateTime { get; set; }
 }
