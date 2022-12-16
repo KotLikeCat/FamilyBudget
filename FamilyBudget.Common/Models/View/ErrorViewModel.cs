@@ -4,8 +4,8 @@ public class ErrorViewModel
 {
     public ErrorViewModel(string error)
     {
-        Error = error;
+        Message = error;
     }
 
-    public string Error { get; set; }
+    public string Message { get; set; }
 }
