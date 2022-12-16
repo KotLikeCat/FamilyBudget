@@ -36,6 +36,13 @@ const Menu = ({dense = false}: MenuProps) => {
                     dense={dense}
                     leftIcon={<DataUsageIcon/>}
                 />
+                <MenuItemLink
+                    to="/budgets"
+                    state={{_scrollToTop: true}}
+                    primaryText='Budgets'
+                    dense={dense}
+                    leftIcon={<DataUsageIcon/>}
+                />
             </Box>
         </>
     );

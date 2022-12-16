@@ -113,6 +113,7 @@ export default (apiUrl, httpClient = fetchJson) => {
         const {json} = response;
         switch (type) {
             case GET_LIST:
+            case GET_MANY:
             case GET_MANY_REFERENCE:
                 return {
                     data: json['data'] ?? [],
