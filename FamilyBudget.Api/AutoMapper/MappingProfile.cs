@@ -25,5 +25,33 @@ public class MappingProfile : Profile
                 });
 
         CreateMap<BaseListViewModel<User>, BaseListViewModel<UserViewModel>>();
+
+        CreateMap<Budget, BudgetViewModel>()
+            .ForMember(
+                dest => dest.CreateTime,
+                opt => opt.MapFrom(src => src.CreateTime.ToString("G"))
+            )
+            .ForMember(
+                dest => dest.Owner,
+                opt => opt.MapFrom(src => src.User.Login)
+            )
+            .AfterMap((source, destination) =>
+            {
+                destination.UserIds = source.BudgetUsers.Select(x => x.UserId).ToList();
+            });
+        
+        CreateMap<BaseListViewModel<Budget>, BaseListViewModel<BudgetViewModel>>();
+
+        CreateMap<Guid, BudgetUser>()
+            .ForMember(
+                dest => dest.UserId,
+                opt => opt.MapFrom(src => src)
+            );
+        
+        CreateMap<BudgetInputModel, Budget>()
+            .ForMember(
+                dest => dest.BudgetUsers,
+                opt => opt.MapFrom(src => src.UserIds)
+            );
     }
 }
