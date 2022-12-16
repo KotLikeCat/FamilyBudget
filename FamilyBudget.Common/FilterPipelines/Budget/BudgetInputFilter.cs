@@ -19,9 +19,19 @@ public class BudgetInputFilter : IPipelineFilter<Models.Data.Budget>
         }
 
         var result = query;
-        if (filters.TryGetValue("user", out var userFilter))
+        if (filters.TryGetValue("name", out var nameFilter))
         {
-            //
+            result = result.Where(x => x.Name.Contains(nameFilter));
+        }
+        
+        if (filters.TryGetValue("description", out var descriptionFilter))
+        {
+            result = result.Where(x => x.Description != null && x.Description.Contains(descriptionFilter));
+        }
+        
+        if (filters.TryGetValue("owner", out var ownerFilter))
+        {
+            result = result.Where(x => x.User.Login.Contains(ownerFilter));
         }
 
         return result;

@@ -24,6 +24,15 @@ public class BudgetSortFilter : IPipelineFilter<Models.Data.Budget>
             "createdAt" => list.Last() == "ASC"
                 ? result.OrderBy(x => x.CreateTime)
                 : result.OrderByDescending(x => x.CreateTime),
+            "name" => list.Last() == "ASC"
+                ? result.OrderBy(x => x.Name)
+                : result.OrderByDescending(x => x.Name),
+            "description" => list.Last() == "ASC"
+                ? result.OrderBy(x => x.Description)
+                : result.OrderByDescending(x => x.Description),
+            "owner" => list.Last() == "ASC"
+                ? result.OrderBy(x => x.User.Login)
+                : result.OrderByDescending(x => x.User.Login),
             _ => result
         };
         return result;
