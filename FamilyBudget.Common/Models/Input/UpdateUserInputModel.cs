@@ -2,11 +2,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FamilyBudget.Common.Models.Input;
 
-public class UserInputModel
+public class UpdateUserInputModel
 {
-    [Required]
-    public string Login { get; set; }
-    
+    public UpdateUserInputModel(string password)
+    {
+        Password = password;
+    }
+
     [Required]
     [MinLength(6)]
     public string Password { get; set; }

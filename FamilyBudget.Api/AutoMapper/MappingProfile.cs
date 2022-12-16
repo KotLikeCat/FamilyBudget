@@ -23,5 +23,7 @@ public class MappingProfile : Profile
                     opt.PreCondition(user => user.LastLoginTime != null);
                     opt.MapFrom(src => src.LastLoginTime!.Value.ToString("G"));
                 });
+
+        CreateMap<BaseListViewModel<User>, BaseListViewModel<UserViewModel>>();
     }
 }
