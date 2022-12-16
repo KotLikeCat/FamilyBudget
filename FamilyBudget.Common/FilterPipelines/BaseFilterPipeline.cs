@@ -24,14 +24,14 @@ public abstract class BaseFilterPipeline<T> where T:BaseDataModel
         _pipelineFilters.Add(filter);
     }
 
-    public async Task<BaseListViewModel<T>> ExecuteAsync(FilterInputModel input)
+    public async Task<BaseListViewModel<T>> ExecuteAsync(FilterInputModel input, params object[] dependencies)
     {
         var result = new BaseListViewModel<T>();
         
-        _pipelineFilters.ForEach(x => _queryable = x.Execute(_queryable, input));
+        _pipelineFilters.ForEach(x => _queryable = x.Execute(_queryable, input, dependencies));
         
         result.Length = await _queryable.CountAsync();
-        result.Data = await _paginationFilter.Execute(_queryable, input).ToListAsync();
+        result.Data = await _paginationFilter.Execute(_queryable, input, dependencies).ToListAsync();
         
         return result;
     }
