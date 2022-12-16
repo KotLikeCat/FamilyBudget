@@ -53,5 +53,9 @@ public class MappingProfile : Profile
                 dest => dest.BudgetUsers,
                 opt => opt.MapFrom(src => src.UserIds)
             );
+
+        CreateMap<Category, CategoryViewModel>();
+        CreateMap<BaseListViewModel<Category>, BaseListViewModel<CategoryViewModel>>();
+        CreateMap<CategoryInputModel, Category>();
     }
 }
