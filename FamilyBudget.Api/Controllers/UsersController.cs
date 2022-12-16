@@ -34,8 +34,16 @@ public class UsersController : ControllerBase
             return BadRequest(new ErrorViewModel("Some of users are not exist"));
         }
         
-        _context.Users.RemoveRange(users);
-        await _context.SaveChangesAsync();
+        try
+        {
+            _context.Users.RemoveRange(users);
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            return BadRequest(
+                new ErrorViewModel("You have to delete all connections between users and any home budget elements"));
+        }
 
         var result = _mapper.Map<List<UserViewModel>>(users);
         return Ok(result);
@@ -49,9 +57,17 @@ public class UsersController : ControllerBase
         {
             return NotFound();
         }
-
-        _context.Users.Remove(user);
-        await _context.SaveChangesAsync();
+        
+        try
+        {
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            return BadRequest(
+                new ErrorViewModel("You have to delete all connections between the user and any home budget elements"));
+        }
 
         var result = _mapper.Map<UserViewModel>(user);
         return Ok(result);
