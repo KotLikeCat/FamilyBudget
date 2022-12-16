@@ -12,6 +12,12 @@ import {UserCreate} from "./Users/UserCreate";
 import {BudgetsList} from "./Budgets/BudgetsList";
 import {BudgetCreate} from "./Budgets/BudgetCreate";
 import {BudgetEdit} from "./Budgets/BudgetEdit";
+import {CategoriesList} from "./Categories/CategoriesList";
+import {CategoryCreate} from "./Categories/CategoryCreate";
+import {CategoryEdit} from "./Categories/CategoryEdit";
+import {BudgetDetailsList} from "./BudgetsDetails/BudgetDetailsList";
+import {BudgetDetailCreate} from "./BudgetsDetails/BudgetDetailCreate";
+import {BudgetDetailEdit} from "./BudgetsDetails/BudgetDetailEdit";
 
 let dataProvider = RestClient(getApiUrl(), httpClient);
 
@@ -21,6 +27,8 @@ const App = () => {
                theme={lightTheme} title="Home Budget">
             <Resource name="users" list={UsersList} edit={UserEdit} create={UserCreate}/>
             <Resource name="budgets" list={BudgetsList} create={BudgetCreate} edit={BudgetEdit}/>
+            <Resource name="categories" list={CategoriesList} create={CategoryCreate} edit={CategoryEdit}/>
+            <Resource name="budgetDetails/:budgetId" list={BudgetDetailsList} create={BudgetDetailCreate} edit={BudgetDetailEdit}/>
         </Admin>
     );
 }

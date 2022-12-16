@@ -5,19 +5,30 @@ import {
     TextField,
     TextInput
 } from 'react-admin';
+import { SavedQueriesList, FilterLiveSearch, FilterList, FilterListItem } from 'react-admin';
+import { Card, CardContent } from '@mui/material';
+import {DetailsButton} from "./Buttons/DetailsButton";
 
-const postFilters = [
-    <TextInput label="User" name="user" source="user" alwaysOn/>,
-];
+const PostFilterSidebar = () => (
+    <Card sx={{ order: -1, mr: 2, mt: 8, width: 200 }}>
+        <CardContent>
+            <FilterLiveSearch source="name" label="Name" variant="outlined"/>
+            <FilterLiveSearch source="description" label="Description" variant="outlined"/>
+            <FilterLiveSearch source="owner" label="Owner" variant="outlined"/>
+        </CardContent>
+    </Card>
+);
+
 export const BudgetsList = () => {
     return (
         <>
-            <List sort={{field: 'createdAt', order: 'DESC'}} filters={postFilters} empty={false}>
+            <List sort={{field: 'createdAt', order: 'DESC'}} empty={false} aside={<PostFilterSidebar />}>
                 <Datagrid rowClick="edit">
                     <TextField source="name" label="Name"/>
                     <TextField source="description" label="Description"/>
-                    <TextField source="createTime" label="Created At"/>
+                    <TextField source="createdAt" label="Created At"/>
                     <TextField source="owner" label="Owner"/>
+                    <DetailsButton label="Details"/>
                 </Datagrid>
             </List>
         </>
