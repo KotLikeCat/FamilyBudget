@@ -7,6 +7,6 @@ public class BudgetViewModel
     public string Name { get; set; }
     public string Description { get; set; }
     public string Owner { get; set; }
-    public string CreateTime { get; set; }
+    public string CreatedAt { get; set; }
     public List<Guid> UserIds { get; set; }
 }
