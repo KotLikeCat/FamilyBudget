@@ -57,5 +57,17 @@ public class MappingProfile : Profile
         CreateMap<Category, CategoryViewModel>();
         CreateMap<BaseListViewModel<Category>, BaseListViewModel<CategoryViewModel>>();
         CreateMap<CategoryInputModel, Category>();
+
+        CreateMap<BudgetDetail, BudgetDetailViewModel>()
+            .ForMember(
+                dest => dest.Owner,
+                opt => opt.MapFrom(src => src.User.Login)
+            )
+            .ForMember(
+                dest => dest.Category,
+                opt => opt.MapFrom(src => src.Category.Name)
+            );
+        CreateMap<BaseListViewModel<BudgetDetail>, BaseListViewModel<BudgetDetailViewModel>>();
+        CreateMap<BudgetDetailInputModel, BudgetDetail>();
     }
 }
