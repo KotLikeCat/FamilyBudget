@@ -6,8 +6,13 @@ namespace FamilyBudget.Common.FilterPipeLines.Generic;
 
 public class Pagination<T> : IPipelineFilter<T> where T:class
 {
-    public IQueryable<T> Execute(IQueryable<T> query, FilterInputModel input)
+    public IQueryable<T> Execute(IQueryable<T> query, FilterInputModel input, params object[] dependencies)
     {
+        if (input.Range == null)
+        {
+            return query;
+        }
+        
         var rangeArray = JsonConvert.DeserializeObject<List<int>>(input.Range);
         if (rangeArray is not { Count: 2 })
         {
