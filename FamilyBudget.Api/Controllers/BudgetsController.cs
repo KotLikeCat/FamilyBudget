@@ -54,7 +54,7 @@ public class BudgetsController : ControllerBase
         budget.Name = input.Name;
         budget.Description = input.Description;
         budget.BudgetUsers.Clear();
-        input.UserIds.ForEach(x=>budget.BudgetUsers.Add(new BudgetUser
+        input.UserIds.ForEach(x => budget.BudgetUsers.Add(new BudgetUser
         {
             BudgetId = id,
             UserId = x
@@ -98,5 +98,53 @@ public class BudgetsController : ControllerBase
         var budgets = await pipeline.ExecuteAsync(input);
         var budgetsView = _mapper.Map<BaseListViewModel<BudgetViewModel>>(budgets);
         return Ok(budgetsView);
+    }
+
+    [HttpDelete("{budgetId:guid}")]
+    public async Task<IActionResult> DeleteBudget(Guid budgetId)
+    {
+        var detail = await _context.Budgets
+            .Include(x=>x.BudgetDetails)
+            .Include(x=>x.BudgetUsers)
+            .SingleOrDefaultAsync(x => x.Id == budgetId);
+
+        if (detail == null)
+        {
+            return NotFound();
+        }
+
+        _context.BudgetUsers.RemoveRange(detail.BudgetUsers);
+        _context.BudgetDetails.RemoveRange(detail.BudgetDetails);
+        _context.Budgets.Remove(detail);
+        await _context.SaveChangesAsync();
+
+        var view = _mapper.Map<BudgetViewModel>(detail);
+        return Ok(view);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteBudget(List<Guid> list)
+    {
+        var details = _context.Budgets
+            .Include(x=>x.BudgetDetails)
+            .Include(x=>x.BudgetUsers)
+            .Where(x => list.Any(y => x.Id == y)).ToList();
+
+        if (details.Count != list.Count)
+        {
+            return BadRequest(new ErrorViewModel("Some of budgets are not exist"));
+        }
+
+        foreach (var detail in details)
+        {
+            _context.BudgetUsers.RemoveRange(detail.BudgetUsers);
+            _context.BudgetDetails.RemoveRange(detail.BudgetDetails);
+            _context.Budgets.Remove(detail);
+        }
+        
+        await _context.SaveChangesAsync();
+
+        var view = _mapper.Map<List<BudgetViewModel>>(details);
+        return Ok(view);
     }
 }
