@@ -4,7 +4,7 @@ namespace FamilyBudget.Common.Models.Input;
 
 public class BudgetInputModel
 {
-    public BudgetInputModel(string name, string? description, List<Guid> userIds)
+    public BudgetInputModel(string name, string? description, List<Guid>? userIds)
     {
         Name = name;
         Description = description;
@@ -14,5 +14,5 @@ public class BudgetInputModel
     [Required]
     public string Name { get; set; }
     public string? Description { get; set; }
-    public List<Guid> UserIds { get; set; }
+    public List<Guid>? UserIds { get; set; }
 }
