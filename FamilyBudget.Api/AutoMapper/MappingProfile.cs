@@ -28,7 +28,7 @@ public class MappingProfile : Profile
 
         CreateMap<Budget, BudgetViewModel>()
             .ForMember(
-                dest => dest.CreateTime,
+                dest => dest.CreatedAt,
                 opt => opt.MapFrom(src => src.CreateTime.ToString("G"))
             )
             .ForMember(
