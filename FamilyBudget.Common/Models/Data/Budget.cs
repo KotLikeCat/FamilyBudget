@@ -26,5 +26,6 @@ public class Budget : BaseDataModel
     public Guid UserId { get; set; }
 
     public List<BudgetUser> BudgetUsers { get; set; }
+    public List<BudgetDetail> BudgetDetails { get; set; }
     public User User { get; set; }
 }

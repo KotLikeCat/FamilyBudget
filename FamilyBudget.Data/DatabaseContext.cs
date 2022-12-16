@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FamilyBudget.Data;
 
-public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
+public class DatabaseContext : DbContext
 {
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
@@ -15,4 +15,5 @@ public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Budget> Budgets { get; set; }
     public DbSet<BudgetUser> BudgetUsers { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<BudgetDetail> BudgetDetails { get; set; }
 }
