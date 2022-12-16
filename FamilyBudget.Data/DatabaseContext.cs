@@ -13,4 +13,5 @@ public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     
     public DbSet<User> Users { get; set; }
     public DbSet<Budget> Budgets { get; set; }
+    public DbSet<BudgetUser> BudgetUsers { get; set; }
 }
