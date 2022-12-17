@@ -27,6 +27,16 @@ public class BudgetDetailsController : ControllerBase
     [HttpPost("{budgetId:guid}")]
     public async Task<IActionResult> CreateBudgetDetail(Guid budgetId, [FromBody] BudgetDetailInputModel input)
     {
+        if (!await _context.Budgets.AnyAsync(x => x.Id == budgetId))
+        {
+            return BadRequest(new ErrorViewModel("The specified budget has not been found"));
+        }
+        
+        if (!await _context.Categories.AnyAsync(x => x.Id == input.CategoryId))
+        {
+            return BadRequest(new ErrorViewModel("The specified category has not been found"));
+        }
+        
         var user = (HttpContext.Items["User"] as User)!;
         var entity = _mapper.Map<BudgetDetail>(input);
         entity.BudgetId = budgetId;
