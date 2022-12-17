@@ -17,7 +17,7 @@ services:
         depends_on:
             - db
     db:
-        image: "mcr.microsoft.com/mssql/server:2022-latest"
+        image: "mcr.microsoft.com/azure-sql-edge"
         environment:
-            SA_PASSWORD: "kzE5(g26rBsj+Py"
+            MSSQL_SA_PASSWORD: "kzE5(g26rBsj+Py"
             ACCEPT_EULA: "Y"
