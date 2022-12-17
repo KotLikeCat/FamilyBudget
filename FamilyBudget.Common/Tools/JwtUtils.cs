@@ -27,6 +27,7 @@ public class JwtUtils : IJwtUtils
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
+        
         return tokenHandler.WriteToken(token);
     }
 
@@ -52,6 +53,7 @@ public class JwtUtils : IJwtUtils
 
             var jwtToken = (JwtSecurityToken)validatedToken;
             var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+            
             return userId;
         }
         catch

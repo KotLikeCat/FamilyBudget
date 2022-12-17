@@ -1,4 +1,5 @@
 namespace FamilyBudget.Common.Models.Input;
+#pragma warning disable CS8618
 
 public class FilterInputModel
 {

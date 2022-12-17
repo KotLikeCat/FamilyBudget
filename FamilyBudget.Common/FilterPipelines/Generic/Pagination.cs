@@ -20,6 +20,7 @@ public class Pagination<T> : IPipelineFilter<T> where T:class
         }
 
         var difference = rangeArray.Last() - rangeArray.First() + 1;
+        
         return query.Skip(rangeArray.First()).Take(difference);
     }
 }

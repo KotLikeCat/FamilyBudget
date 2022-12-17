@@ -38,6 +38,7 @@ public class BudgetDetailsSortFilter : IPipelineFilter<Models.Data.BudgetDetail>
                 : result.OrderByDescending(x => x.User.Login),
             _ => result
         };
+        
         return result;
     }
 }

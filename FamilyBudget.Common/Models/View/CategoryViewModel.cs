@@ -1,4 +1,5 @@
 namespace FamilyBudget.Common.Models.View;
+#pragma warning disable CS8618
 
 public class CategoryViewModel
 {

@@ -26,6 +26,7 @@ public class CategorySortFilter : IPipelineFilter<Models.Data.Category>
                 : result.OrderByDescending(x => x.Name),
             _ => result
         };
+        
         return result;
     }
 }

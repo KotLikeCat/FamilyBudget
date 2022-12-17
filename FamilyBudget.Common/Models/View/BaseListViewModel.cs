@@ -1,17 +1,8 @@
 namespace FamilyBudget.Common.Models.View;
+#pragma warning disable CS8618
 
 public class BaseListViewModel<T> where T:class
 {
-    public BaseListViewModel()
-    {
-        
-    }
-    public BaseListViewModel(List<T> data, long length)
-    {
-        Data = data;
-        Length = length;
-    }
-
     public List<T> Data { get; set; } = null!;
     public long Length { get; set; }
 }

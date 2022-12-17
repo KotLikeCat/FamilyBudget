@@ -1,16 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+#pragma warning disable CS8618
 
 namespace FamilyBudget.Common.Models.Input;
 
 public class UpdateBudgetInputModel
 {
-    public UpdateBudgetInputModel(string name, string? description, List<Guid> userIds)
-    {
-        Name = name;
-        Description = description;
-        UserIds = userIds;
-    }
-
     [Required]
     public string Name { get; set; }
     public string? Description { get; set; }

@@ -1,5 +1,4 @@
 using FamilyBudget.Api.Cache;
-using FamilyBudget.Common.Models.Configuration;
 using FamilyBudget.Common.Tools;
 
 namespace FamilyBudget.Api.Authorization;
@@ -7,12 +6,10 @@ namespace FamilyBudget.Api.Authorization;
 public class JwtMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly JwtConfiguration _jwtConfiguration;
 
-    public JwtMiddleware(RequestDelegate next, JwtConfiguration jwtConfiguration)
+    public JwtMiddleware(RequestDelegate next)
     {
         _next = next;
-        _jwtConfiguration = jwtConfiguration;
     }
 
     public async Task Invoke(HttpContext context, IJwtUtils jwtUtils, IUserCache userCache)

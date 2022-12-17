@@ -33,6 +33,7 @@ public class UserSortFilter : IPipelineFilter<Models.Data.User>
                 : result.OrderByDescending(x => x.LastLoginTime),
             _ => result
         };
+        
         return result;
     }
 }
