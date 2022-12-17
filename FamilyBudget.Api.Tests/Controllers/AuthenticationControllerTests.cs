@@ -10,7 +10,7 @@ namespace FamilyBudget.Api.Tests.Controllers;
 
 public class AuthenticationControllerTests
 {
-    private Fixture _fixture;
+    private readonly Fixture _fixture;
 
     public AuthenticationControllerTests()
     {
