@@ -19,6 +19,7 @@ import {
     useTranslate,
     useLogin,
     useNotify,
+    minLength
 } from 'react-admin';
 
 import Box from '@mui/material/Box';
@@ -50,6 +51,8 @@ const Login = () => {
             );
         });
     };
+
+    const validatePassword = [required(), minLength(6)];
 
     return (
         <Form onSubmit={handleSubmit} noValidate>
@@ -106,7 +109,7 @@ const Login = () => {
                                 label={translate('ra.auth.password')}
                                 type="password"
                                 disabled={loading}
-                                validate={required()}
+                                validate={validatePassword}
                                 fullWidth
                             />
                         </Box>
