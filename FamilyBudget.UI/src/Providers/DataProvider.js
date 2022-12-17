@@ -10,7 +10,7 @@ const httpClient = (url, options = {}) => {
 };
 
 const getApiUrl = () => {
-    return 'https://localhost:7080/api';
+    return 'http://localhost:7080/api';
 }
 
 export {httpClient, getApiUrl}
