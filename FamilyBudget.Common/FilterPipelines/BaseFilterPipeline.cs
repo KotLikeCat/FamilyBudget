@@ -1,4 +1,4 @@
-using FamilyBudget.Common.FilterPipeLines.Generic;
+using FamilyBudget.Common.FilterPipelines.Generic;
 using FamilyBudget.Common.Models.Data;
 using FamilyBudget.Common.Models.Input;
 using FamilyBudget.Common.Models.View;

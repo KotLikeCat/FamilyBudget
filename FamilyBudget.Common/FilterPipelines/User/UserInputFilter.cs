@@ -1,8 +1,7 @@
-using FamilyBudget.Common.FilterPipelines;
 using FamilyBudget.Common.Models.Input;
 using Newtonsoft.Json;
 
-namespace FamilyBudget.Common.FilterPipeLines.User;
+namespace FamilyBudget.Common.FilterPipelines.User;
 
 public class UserInputFilter : IPipelineFilter<Models.Data.User>
 {

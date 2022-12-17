@@ -1,6 +1,6 @@
 using AutoMapper;
 using FamilyBudget.Api.Authorization;
-using FamilyBudget.Common.FilterPipeLines.User;
+using FamilyBudget.Common.FilterPipelines.User;
 using FamilyBudget.Common.Models.Data;
 using FamilyBudget.Common.Models.Input;
 using FamilyBudget.Common.Models.View;

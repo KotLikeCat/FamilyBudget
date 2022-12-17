@@ -1,8 +1,7 @@
-using FamilyBudget.Common.FilterPipelines;
 using FamilyBudget.Common.Models.Input;
 using Newtonsoft.Json;
 
-namespace FamilyBudget.Common.FilterPipeLines.Generic;
+namespace FamilyBudget.Common.FilterPipelines.Generic;
 
 public class Pagination<T> : IPipelineFilter<T> where T:class
 {

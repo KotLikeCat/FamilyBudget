@@ -1,6 +1,4 @@
-using FamilyBudget.Common.FilterPipelines;
-
-namespace FamilyBudget.Common.FilterPipeLines.User;
+namespace FamilyBudget.Common.FilterPipelines.User;
 
 public class UserFilterPipeline : BaseFilterPipeline<Models.Data.User>
 {
