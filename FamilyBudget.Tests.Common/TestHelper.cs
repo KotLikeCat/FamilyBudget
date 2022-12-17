@@ -99,4 +99,33 @@ public class TestHelper
 
         return entity;
     }
+
+    public async Task<Category> CreateCategory()
+    {
+        var categoryInput = _fixture.Create<CategoryInputModel>();
+        var entity = _mapper.Map<Category>(categoryInput);
+        await _databaseContext.Categories.AddAsync(entity);
+        await _databaseContext.SaveChangesAsync();
+
+        return entity;
+    }
+
+    public async Task<BudgetDetail> CreateBudgetDetail()
+    {
+        var category = await _databaseContext.Categories.FirstAsync();
+        var budget = await _databaseContext.Budgets.FirstAsync();
+        var user = await _databaseContext.Users.FirstAsync();
+        
+        var budgetDetailInput = _fixture.Create<BudgetDetailInputModel>();
+        budgetDetailInput.CategoryId = category.Id;
+
+        var entity = _mapper.Map<BudgetDetail>(budgetDetailInput);
+        entity.UserId = user.Id;
+        entity.BudgetId = budget.Id;
+
+        await _databaseContext.BudgetDetails.AddAsync(entity);
+        await _databaseContext.SaveChangesAsync();
+
+        return entity;
+    }
 }
