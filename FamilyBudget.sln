@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBudget.Data", "Family
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBudget.Migrations", "FamilyBudget.Migrations\FamilyBudget.Migrations.csproj", "{FAF0CEC5-7EA4-41D8-8C0C-B4DC277D6A38}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{90EA5394-8A68-4DC8-8656-CBBEF973D2F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBudget.Api.Tests", "FamilyBudget.Api.Tests\FamilyBudget.Api.Tests.csproj", "{657D3127-0841-4EA3-9469-61FC07AFECF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBudget.Tests.Common", "FamilyBudget.Tests.Common\FamilyBudget.Tests.Common.csproj", "{AC40195B-D044-4C06-8267-EA5F7AC03A8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,17 @@ Global
 		{FAF0CEC5-7EA4-41D8-8C0C-B4DC277D6A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAF0CEC5-7EA4-41D8-8C0C-B4DC277D6A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAF0CEC5-7EA4-41D8-8C0C-B4DC277D6A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{657D3127-0841-4EA3-9469-61FC07AFECF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657D3127-0841-4EA3-9469-61FC07AFECF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657D3127-0841-4EA3-9469-61FC07AFECF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657D3127-0841-4EA3-9469-61FC07AFECF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC40195B-D044-4C06-8267-EA5F7AC03A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC40195B-D044-4C06-8267-EA5F7AC03A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC40195B-D044-4C06-8267-EA5F7AC03A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC40195B-D044-4C06-8267-EA5F7AC03A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{657D3127-0841-4EA3-9469-61FC07AFECF4} = {90EA5394-8A68-4DC8-8656-CBBEF973D2F9}
+		{AC40195B-D044-4C06-8267-EA5F7AC03A8A} = {90EA5394-8A68-4DC8-8656-CBBEF973D2F9}
 	EndGlobalSection
 EndGlobal
