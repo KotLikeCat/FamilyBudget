@@ -5,7 +5,7 @@ import {
     TextInput,
     required,regex
 } from 'react-admin';
-import {SelectField, SelectArrayInput, ReferenceInput, SelectInput} from 'react-admin';
+import {ReferenceInput, SelectInput} from 'react-admin';
 import {Box} from "@mui/material";
 import {useParams} from "react-router-dom";
 
@@ -14,7 +14,7 @@ const AmountValidation = [required(), regex(/^[0-9]+(\.[0-9]{1,2})?$/, 'Should b
 export const BudgetDetailCreate = () => {
     const {budgetId} = useParams();
     return (
-    <Create resource={`budgetDetails/${budgetId}`}>
+    <Create title="Budget Detail Create" resource={`budgetDetails/${budgetId}`}>
         <SimpleForm>
             <Box sx={{width: '200px', margin: '1em'}}>
                 <TextInput name="description" source="description"/>

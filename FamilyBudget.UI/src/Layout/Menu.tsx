@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import {useAuthenticated} from 'react-admin'
-import DataUsageIcon from '@mui/icons-material/DataUsage';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PeopleIcon from '@mui/icons-material/People';
 import {
     useTranslate,
     MenuItemLink,
@@ -34,14 +35,14 @@ const Menu = ({dense = false}: MenuProps) => {
                     state={{_scrollToTop: true}}
                     primaryText='Users'
                     dense={dense}
-                    leftIcon={<DataUsageIcon/>}
+                    leftIcon={<PeopleIcon/>}
                 />
                 <MenuItemLink
                     to="/budgets"
                     state={{_scrollToTop: true}}
                     primaryText='Budgets'
                     dense={dense}
-                    leftIcon={<DataUsageIcon/>}
+                    leftIcon={<MonetizationOnIcon/>}
                 />
             </Box>
         </>

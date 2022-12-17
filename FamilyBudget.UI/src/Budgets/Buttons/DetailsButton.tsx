@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {
     RaRecord,
-    useResourceContext,
     useRecordContext,
 } from 'ra-core';
 
@@ -34,7 +33,6 @@ export const DetailsButton = <RecordType extends RaRecord = any>(
         ...rest
     } = props;
     const basename = useBasename();
-    const resource = useResourceContext(props);
     const record = useRecordContext(props);
     if (!record) return null;
     // @ts-ignore

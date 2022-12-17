@@ -2,10 +2,9 @@ import * as React from "react";
 import {
     List,
     Datagrid,
-    TextField,
-    TextInput
+    TextField
 } from 'react-admin';
-import { SavedQueriesList, FilterLiveSearch, FilterList, FilterListItem } from 'react-admin';
+import { FilterLiveSearch} from 'react-admin';
 import { Card, CardContent } from '@mui/material';
 import {DetailsButton} from "./Buttons/DetailsButton";
 

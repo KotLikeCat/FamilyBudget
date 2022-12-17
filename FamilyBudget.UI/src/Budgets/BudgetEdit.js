@@ -3,7 +3,7 @@ import {
     Edit,
     SimpleForm,
     TextInput,
-    required
+    required, useRecordContext
 } from 'react-admin';
 import {ReferenceArrayInput, SelectArrayInput} from 'react-admin';
 import {Box} from "@mui/material";
@@ -24,8 +24,13 @@ const Transform = (data) => {
     return data
 };
 
+const BudgetTitle = () => {
+    const record = useRecordContext();
+    return <span>{record ? `${record.name}` : ''}</span>;
+};
+
 export const BudgetEdit = () => (
-    <Edit transform={Transform}>
+    <Edit title={<BudgetTitle/>} transform={Transform}>
         <SimpleForm>
             <Box sx={{width: '200px', margin: '1em'}}>
                 <TextInput name="name" source="name" validate={required()}/>

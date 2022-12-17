@@ -122,7 +122,7 @@ const Login = () => {
                             {loading && (
                                 <CircularProgress size={25} thickness={2}/>
                             )}
-                            {translate('loginButton')}
+                            Login
                         </Button>
                     </CardActions>
                 </Card>

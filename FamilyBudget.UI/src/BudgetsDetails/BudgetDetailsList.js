@@ -3,7 +3,7 @@ import {
     List,
     Datagrid,
     TextField,
-    FilterList, FilterListItem, FunctionField, ReferenceInput
+    FilterList, FilterListItem, FunctionField
 } from 'react-admin';
 import {Link, useParams} from "react-router-dom";
 import {TopToolbar, FilterLiveSearch, CreateButton, Button} from 'react-admin';
@@ -42,7 +42,7 @@ export const BudgetDetailsList = () => {
     const {budgetId} = useParams();
     return (
         <>
-            <List sort={{field: 'createdAt', order: 'DESC'}} actions={<ListActions/>} resource={`budgetDetails/${budgetId}`}
+            <List title='Details' sort={{field: 'createdAt', order: 'DESC'}} actions={<ListActions/>} resource={`budgetDetails/${budgetId}`}
                   empty={false} aside={<PostFilterSidebar/>}>
                 <Datagrid rowClick="edit">
                     <TextField source="description" label="Description"/>
