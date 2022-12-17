@@ -76,11 +76,6 @@ public class UsersController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetUsers([FromQuery] FilterInputModel input)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
         var currentUser = HttpContext.Items["User"] as User;
         var pipeline = new UserFilterPipeline(_context.Users.AsNoTracking().AsQueryable());
         var users = await pipeline.ExecuteAsync(input, currentUser!);
